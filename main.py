@@ -120,7 +120,7 @@ with open(sys.argv[1], 'r') as f:
         id = 0
         for line in f:
             # Игнорируем комментарии и пустые строки
-            if line.startswith('#') or len(line) == 0:
+            if line.startswith('#') or not line.strip():
                 continue
             from_city, to_city, transport_type, cruise_time, cruise_fare = [l.strip('"') for l in line.strip().split()]
             if transport_type not in all_transport:
